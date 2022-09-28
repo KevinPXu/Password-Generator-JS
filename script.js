@@ -133,9 +133,35 @@ function writePassword() {
     var specChar = ".*&!@#$^_-=+";
     specChar = specChar.split("");
     console.log(specChar);
+
+    //create a concatenated array of values if prompt case was true.
+    var finalArray = [];
+
+    if (upperVal) {
+      finalArray = finalArray.concat(upperCaseLetters);
+      console.log(finalArray);
+    }
+
+    if (lowerVal) {
+      finalArray = finalArray.concat(lowerCaseLetters);
+      console.log(finalArray);
+    }
+
+    if (numVal) {
+      finalArray = finalArray.concat(numArray);
+      console.log(finalArray);
+    }
+
+    if (symVal) {
+      finalArray = finalArray.concat(specChar);
+      console.log(finalArray);
+
+      return finalArray;
+    }
   }
 
-  var password = generatePassword();
+  var password = generatePassword(upper, lower, numeric, symbol, passLength);
+  console.log(password);
   var passwordText = document.querySelector("#password");
 
   passwordText.value = password;
