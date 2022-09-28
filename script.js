@@ -112,6 +112,29 @@ function writePassword() {
 
   console.log(passLength);
 
+  //creates a function to generate the password based on the prompted answers
+  function generatePassword(upperVal, lowerVal, numVal, symVal, passVal) {
+    // Creates array of uppercase letters
+    var upperCaseLetters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    upperCaseLetters = upperCaseLetters.split("");
+    console.log(upperCaseLetters);
+
+    //Creates array of lowercase letters
+    var lowerCaseLetters = "abcdefghijklmnopqrstuvwxyz";
+    lowerCaseLetters = lowerCaseLetters.split("");
+    console.log(lowerCaseLetters);
+
+    //Creates array of numbers
+    var numArray = "1234567890";
+    numArray = numArray.split("");
+    console.log(numArray);
+
+    //Creates array of special Characters
+    var specChar = ".*&!@#$^_-=+";
+    specChar = specChar.split("");
+    console.log(specChar);
+  }
+
   var password = generatePassword();
   var passwordText = document.querySelector("#password");
 
