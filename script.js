@@ -30,6 +30,8 @@ function writePassword() {
 
   if (upperPrompt === "y" || upperPrompt === "Y") {
     upper = true;
+  } else {
+    upper = false;
   }
 
   console.log(upper);
@@ -52,6 +54,8 @@ function writePassword() {
 
   if (lowerPrompt === "y" || lowerPrompt === "Y") {
     lower = true;
+  } else {
+    lower = false;
   }
 
   console.log(lower);
@@ -70,6 +74,8 @@ function writePassword() {
 
   if (numPrompt === "y" || numPrompt === "Y") {
     numeric = true;
+  } else {
+    numeric = false;
   }
 
   console.log(numeric);
@@ -88,6 +94,8 @@ function writePassword() {
 
   if (symPrompt === "y" || symPrompt === "Y") {
     symbol = true;
+  } else {
+    symbol = false;
   }
 
   console.log(symbol);
@@ -139,29 +147,30 @@ function writePassword() {
 
     if (upperVal) {
       finalArray = finalArray.concat(upperCaseLetters);
-      console.log(finalArray);
     }
 
     if (lowerVal) {
       finalArray = finalArray.concat(lowerCaseLetters);
-      console.log(finalArray);
     }
 
     if (numVal) {
       finalArray = finalArray.concat(numArray);
-      console.log(finalArray);
     }
 
     if (symVal) {
       finalArray = finalArray.concat(specChar);
-      console.log(finalArray);
-
-      return finalArray;
     }
+
+    var finalPass = "";
+    for (var i = 0; i < passVal; i++) {
+      finalPass += finalArray[Math.floor(Math.random() * finalArray.length)];
+      console.log(finalPass);
+    }
+
+    return finalPass;
   }
 
   var password = generatePassword(upper, lower, numeric, symbol, passLength);
-  console.log(password);
   var passwordText = document.querySelector("#password");
 
   passwordText.value = password;
