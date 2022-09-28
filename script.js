@@ -160,17 +160,21 @@ function writePassword() {
     if (symVal) {
       finalArray = finalArray.concat(specChar);
     }
-
+    //initializes the finalPass variable outside the for loop so it does not get rewritten after each iteration of the for loop
     var finalPass = "";
+    //iterates the random number generator that selects a random number between 0 and length of the finalArray variable, then selects a value from the finalArray array and adds it to the finalPass string
     for (var i = 0; i < passVal; i++) {
       finalPass += finalArray[Math.floor(Math.random() * finalArray.length)];
       console.log(finalPass);
     }
-
+    // returns the final password to the password variable from the function call
     return finalPass;
   }
 
   var password = generatePassword(upper, lower, numeric, symbol, passLength);
+
+  //sends an alert with the given password before it is printed to the screen
+  alert(password);
   var passwordText = document.querySelector("#password");
 
   passwordText.value = password;
