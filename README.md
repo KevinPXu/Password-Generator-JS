@@ -26,51 +26,32 @@ This project was used to teach myself how to code with Javascript. I learned to 
 
 ## Description
 
-Page to generate a password of given length between 8 and 128. User will be prompted to select if they want Uppercase, Lowercase, numbers and/or symbols in their password. After all prompts are completed, a password will be alerted to the user then displayed to the screen.
+Page to generate a password of given length between 8 and 128. User will be prompted to select if they want Uppercase, Lowercase, numbers and/or symbols in their password. If an improper input is recorded, then an error message will be displayed and user will be prompted again to input a value. After all prompts are completed, a password will be alerted to the user then displayed to the screen.
 
 ## Code Snippet
 
-### Profile picture inline text wrap
+### Creates a warning of invalid option is presented
 
-```HTML
-<aside id="Biography">
-          <h2>Biography</h2>
-
-          <p class="Bio-content">
-            <!-- Profile Picture -->
-            <img
-              class="profilepic"
-              src="./Assets/images/Monkey-Selfie.webp"
-              alt="Placeholder Monkey"
-            />![](https://file%2B.vscode-resource.vscode-cdn.net/Users/kevinxu/Desktop/bootcamp/homework/Passworld-Generator-JS/Assets/Screenshot1.png)
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-            aliquip ex ea commodo consequat. Duis aute irure dolor in
-            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-            pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-            culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum
-            dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-            incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-            veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
-            ea commodo consequat. Duis aute irure dolor in reprehenderit in
-            voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-            Excepteur sint occaecat cupidatat non proident, sunt in culpa qui
-            officia deserunt mollit anim id est laborum.
-          </p>
-        </aside>
+```Javascript
+var upperPrompt = prompt(
+    "Do you want uppercase letters in your password? (y/n)"
+  );
+  //if the answer to prompt is not valid, it will ask them to choose a new answer.
+  while (
+    upperPrompt != "y" &&
+    upperPrompt != "Y" &&
+    upperPrompt != "n" &&
+    upperPrompt != "N"
+  ) {
+    upperPrompt = prompt(
+      "That is not a valid option, please choose again(y/n)"
+    );
+  }
 ```
 
-### CSS styling for the above code to wrap profile picture
+### Screenshot of above code
 
-```CSS
-/* settings for the profile picture, making sure it wrapped by the text*/
-#Biography .Bio-content .profilepic {
-  width: 100px;
-  height: 150px;
-  float: left;
-  padding: 10px;
-```
+<img src="./Assets/Screenshot5.png" alt="Screenshot">
 
 ## Author Links
 
