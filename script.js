@@ -17,23 +17,24 @@ function writePassword() {
     "Do you want uppercase letters in your password? (y/n)"
   );
   //if the answer to prompt is not valid, it will ask them to choose a new answer.
-  while (
-    upperPrompt != "y" &&
-    upperPrompt != "Y" &&
-    upperPrompt != "n" &&
-    upperPrompt != "N"
-  ) {
+  var validPrompts = ["y", "Y", "n", "N"];
+  while (!validPrompts.includes(upperPrompt))
+
+    // upperPrompt != "y" &&
+    // upperPrompt != "Y" &&
+    // upperPrompt != "n" &&
+    // upperPrompt != "N"
+  {
     upperPrompt = prompt(
       "That is not a valid option, please choose again(y/n)"
     );
   }
-
-  if (upperPrompt === "y" || upperPrompt === "Y") {
-    upper = true;
-  } else {
-    upper = false;
-  }
-
+  upper = upperPrompt.toUpperCase() === "Y";
+  // if (upperPrompt === "y" || upperPrompt === "Y") {
+  //   upper = true;
+  // } else {
+  //   upper = false;
+  // }
   console.log(upper);
 
   //Asks if they want a lowercase letter in the password with error protection.
@@ -41,22 +42,22 @@ function writePassword() {
     "Do you want lowercase letters in your password? (y/n)"
   );
   //if the answer to prompt is not valid, it will ask them to choose a new answer.
-  while (
-    lowerPrompt !== "y" &&
-    lowerPrompt !== "Y" &&
-    lowerPrompt !== "n" &&
-    lowerPrompt !== "N"
-  ) {
+  while (!validPrompts.includes(upperPrompt))
+    // lowerPrompt !== "y" &&
+    // lowerPrompt !== "Y" &&
+    // lowerPrompt !== "n" &&
+    // lowerPrompt !== "N" {
     lowerPrompt = prompt(
       "That is not a valid option, please choose again(y/n)"
     );
   }
 
-  if (lowerPrompt === "y" || lowerPrompt === "Y") {
-    lower = true;
-  } else {
-    lower = false;
-  }
+    lower = lowerPrompt.toUpperCase() === "Y";
+  // if (lowerPrompt === "y" || lowerPrompt === "Y") {
+  //   lower = true;
+  // } else {
+  //   lower = false;
+  // }
 
   console.log(lower);
 
