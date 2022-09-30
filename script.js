@@ -7,14 +7,18 @@ var numeric = false;
 var symbol = false;
 var passLength = 0;
 
-// prompt the criteria of each choice: Uppercase letter, Lowercase letter, numeric, or/and symbols.
-
-// Write password to the #password upper
+// prompt the criteria of each choice: Uppercase letter, Lowercase letter, numeric, and/or symbols.
 function writePassword() {
-  upper = promptUser("uppercase letter");
-  lower = promptUser("lowercase letter");
-  numeric = promptUser("number");
-  symbol = promptUser("symbols");
+  while (!(upper || lower || numeric || symbol)) {
+    upper = promptUser("Do you want uppercase letters in your password? (y/n)");
+    lower = promptUser("Do you want lowercase letters in your password? (y/n)");
+    numeric = promptUser("Do you want numbers in your password? (y/n)");
+    symbol = promptUser("Do you want symbols in your password? (y/n)");
+    //checks if user inputs all no's, alerts then asks again
+    if (!(upper || lower || numeric || symbol)) {
+      alert("ERROR: cannot choose all no's, try again.");
+    }
+  }
 
   //Asks user how many characters they want their password to be.
   var lenPrompt = prompt(
@@ -97,10 +101,9 @@ function generatePassword(upperVal, lowerVal, numVal, symVal, passVal) {
   return finalPass;
 }
 
-function promptUser(element1) {
-  var inputPrompt = prompt(
-    "Do you want " + element1 + " in your password? (y/n)"
-  );
+//prompts user for specified element and checks validity of user input
+function promptUser(promptText) {
+  var inputPrompt = prompt(promptText);
   //if the answer to prompt is not valid, it will ask them to choose a new answer.
   var validPrompts = ["y", "Y", "n", "N"];
   while (!validPrompts.includes(inputPrompt)) {
